@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".login.LoginActivity">
+
+    <TextView
+        android:id="@+id/name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:text="用户名：" />
+
+    <EditText
+        android:id="@+id/name_edit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@+id/name_text" />
+
+    <TextView
+        android:id="@+id/pwd_text"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/name_edit"
+        android:text="密码:"
+        android:gravity="center_vertical"/>
+
+    <EditText
+        android:id="@+id/pwd_edit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/name_edit"
+        android:layout_toRightOf="@+id/pwd_text" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/pwd_edit"
+        android:id="@+id/commit_btn"
+        android:text="登 录"/>
+</RelativeLayout>
