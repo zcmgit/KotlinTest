@@ -70,7 +70,7 @@ public class ApiManager {
 
             Retrofit retrofit = new Retrofit.Builder()
                     .client(okHttpClient)
-                    .baseUrl("http://192.168.1.82:8087")
+                    .baseUrl("baseul")
                     .addConverterFactory(FastJsonConverterFactory.create())
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .build();
@@ -96,7 +96,7 @@ public class ApiManager {
 
             Retrofit retrofit = new Retrofit.Builder()
                     .client(okHttpClient)
-                    .baseUrl("http://192.168.1.82:8087")
+                    .baseUrl("baseul")
                     .addConverterFactory(StringConverterFactory.create())
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .build();
