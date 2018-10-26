@@ -8,9 +8,10 @@ import android.app.Application
  * @Describe
  */
 class App : Application() {
-    companion object {// 伴生对象
-    lateinit var instance: App
-        private set
+    companion object {
+        // 伴生对象
+        lateinit var instance: App
+            private set
     }
 
     override fun onCreate() {

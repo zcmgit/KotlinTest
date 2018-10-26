@@ -7,8 +7,10 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import com.example.kotlin.R
 import com.example.kotlin.adapter.MyAdapter
+import com.example.kotlin.tool.Preference
 import kotlinx.android.synthetic.main.list.*
 import org.jetbrains.anko.toast
+import kotlin.math.log
 
 /**
  * @author zcm
@@ -16,27 +18,29 @@ import org.jetbrains.anko.toast
  * @Describe
  */
 class ListActivity : AppCompatActivity() {
-
+    private var variable by Preference("login_time", "10")
     var listDatas = ArrayList<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.list)
-        var adapter = MyAdapter(this,initData()!!)
+        this.show_txt?.text = "登录时间：" + variable
+        var adapter = MyAdapter(this, initData()!!)
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = adapter
-        adapter.setOnClickListener(object :MyAdapter.MyInter{     //自定义接口回调
+        adapter.setOnClickListener(object : MyAdapter.MyInter {     //自定义接口回调
             override fun onclick(p0: Int) {
-                toast("click：："+p0+"::"+listDatas.get(p0))
+                toast("click：：" + p0 + "::" + listDatas.get(p0))
             }
         })
     }
 
     private fun initData(): ArrayList<String>? {
-        for (i in 0..50){
+        for (i in 0..50) {
             var test = "测试Test"
-            listDatas.add(i,test)
+            listDatas.add(i, test)
         }
-        Log.d("tag","list.size------"+ listDatas.size)
+        Log.d("tag", "list.size------" + listDatas.size)
         return listDatas
     }
 }

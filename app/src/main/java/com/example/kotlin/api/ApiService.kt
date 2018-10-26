@@ -9,7 +9,7 @@ import rx.Observable
 interface ApiService {
 
     @FormUrlEncoded
-    @POST("url")
+    @POST("/api/organ/login")
     abstract fun login(@FieldMap params: Map<String, String>): Observable<String>
 
 }

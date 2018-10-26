@@ -4,13 +4,19 @@ import android.content.Intent
 import android.util.Log
 import com.example.kotlin.R
 import com.example.kotlin.list.ListActivity
+import com.example.kotlin.tool.Preference
 import com.zhangqie.mvphttp.mvp_retrofit_rxjava.base.BaseActivity
 import com.zhangqie.mvphttp.mvp_retrofit_rxjava.presenter.LoginPresenter
 import com.zhangqie.mvphttp.mvp_retrofit_rxjava.view.IView
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
+import java.text.SimpleDateFormat
+import java.util.*
 
 class LoginActivity : BaseActivity<IView, LoginPresenter>(), IView {
+
+    private var variable by Preference("login_time", "10")
+
     override fun onError(error: String) {
         Log.d("test==",error)
         toast(error)
@@ -18,6 +24,8 @@ class LoginActivity : BaseActivity<IView, LoginPresenter>(), IView {
 
     override fun onLoadContributorComplete(data: String) {
         toast(data)
+        var time = Date().getNowDateTime()
+        variable = time
         val intent = Intent()
         //获取intent对象
         intent.setClass(this, ListActivity::class.java)
@@ -32,7 +40,10 @@ class LoginActivity : BaseActivity<IView, LoginPresenter>(), IView {
     override fun createPresenter(): LoginPresenter {
         return LoginPresenter()
     }
-
+    fun Date.getNowDateTime(): String {
+        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        return sdf.format(this)
+    }
     override fun initView() {
         commit_btn.setOnClickListener{
             var name = name_edit.text.toString()

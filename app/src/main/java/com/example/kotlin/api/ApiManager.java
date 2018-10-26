@@ -70,7 +70,7 @@ public class ApiManager {
 
             Retrofit retrofit = new Retrofit.Builder()
                     .client(okHttpClient)
-                    .baseUrl("baseul")
+                    .baseUrl(Config.Constants.INSTANCE.getBaseUrl())
                     .addConverterFactory(FastJsonConverterFactory.create())
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .build();
@@ -96,7 +96,7 @@ public class ApiManager {
 
             Retrofit retrofit = new Retrofit.Builder()
                     .client(okHttpClient)
-                    .baseUrl("baseul")
+                    .baseUrl(Config.Constants.INSTANCE.getBaseUrl())
                     .addConverterFactory(StringConverterFactory.create())
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .build();
