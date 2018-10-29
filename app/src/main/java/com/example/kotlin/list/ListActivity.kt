@@ -8,11 +8,13 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import com.example.kotlin.R
 import com.example.kotlin.adapter.MyAdapter
+import com.example.kotlin.dao.test.DBtest
 import com.example.kotlin.dialog.CommonDialog
 import com.example.kotlin.dialog.CommonDialogFragment
 import com.example.kotlin.drawer.DrawerMainActivity
 import com.example.kotlin.tool.Preference
 import kotlinx.android.synthetic.main.list.*
+import org.greenrobot.greendao.test.DbTest
 import org.jetbrains.anko.toast
 
 /**
@@ -37,6 +39,7 @@ class ListActivity : AppCompatActivity() {
                     0 -> showDialog()
                     1 -> showCommonDialogFragment()
                     2 -> startDrawer()
+                    3 -> DbTest()
                     else -> toast("click：：" + p0 + "::" + listDatas.get(p0))
                 }
             }
@@ -47,7 +50,8 @@ class ListActivity : AppCompatActivity() {
         listDatas.add("提示对话框")
         listDatas.add("自定义DialogFragment")
         listDatas.add("抽屉侧滑菜单")
-        for (i in 3..50) {
+        listDatas.add("数据库Test")
+        for (i in 4..50) {
             var test = "测试Test"
             listDatas.add(i, test)
         }
@@ -55,6 +59,13 @@ class ListActivity : AppCompatActivity() {
         return listDatas
     }
 
+    private fun DbTest(){
+        val intent = Intent()
+        //获取intent对象
+        intent.setClass(this, DBtest::class.java)
+        // 获取class是使用::反射(那么问题来了,反射是个什么鬼?👻👻👻👻小白的悲哀啊,赶紧研究研究去)
+        startActivity(intent)
+    }
     private fun startDrawer(){
         val intent = Intent()
         //获取intent对象
