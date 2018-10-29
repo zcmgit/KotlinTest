@@ -17,7 +17,8 @@
         android:id="@+id/name_edit"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_toRightOf="@+id/name_text" />
+        android:layout_toRightOf="@+id/name_text"
+        android:text="18717311781"/>
 
     <TextView
         android:id="@+id/pwd_text"
@@ -32,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/name_edit"
+        android:text="123456"
         android:layout_toRightOf="@+id/pwd_text" />
 
     <Button

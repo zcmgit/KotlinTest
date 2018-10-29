@@ -66,7 +66,7 @@ public class ApiManager {
                             .build();
                     return chain.proceed(request);
                 }
-            }).connectTimeout(10, TimeUnit.SECONDS).readTimeout(10, TimeUnit.SECONDS).build();
+            }).connectTimeout(5, TimeUnit.SECONDS).readTimeout(5, TimeUnit.SECONDS).build();
 
             Retrofit retrofit = new Retrofit.Builder()
                     .client(okHttpClient)
@@ -92,7 +92,7 @@ public class ApiManager {
                             .build();
                     return chain.proceed(request);
                 }
-            }).connectTimeout(10, TimeUnit.SECONDS).readTimeout(10, TimeUnit.SECONDS).build();
+            }).connectTimeout(5, TimeUnit.SECONDS).readTimeout(5, TimeUnit.SECONDS).build();
 
             Retrofit retrofit = new Retrofit.Builder()
                     .client(okHttpClient)

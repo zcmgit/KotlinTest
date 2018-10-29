@@ -10,7 +10,8 @@ class Config {
 
     object Constants {
 
-        var baseUrl = "http://192.168.2.83:8087"
+        var baseUrl = "http://192.168.1.82:8087"
+
     }
 
 

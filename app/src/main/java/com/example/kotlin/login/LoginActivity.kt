@@ -20,6 +20,13 @@ class LoginActivity : BaseActivity<IView, LoginPresenter>(), IView {
     override fun onError(error: String) {
         Log.d("test==",error)
         toast(error)
+//        var time = Date().getNowDateTime()
+//        variable = time
+//        val intent = Intent()
+//        //获取intent对象
+//        intent.setClass(this, ListActivity::class.java)
+//        // 获取class是使用::反射(那么问题来了,反射是个什么鬼?👻👻👻👻小白的悲哀啊,赶紧研究研究去)
+//        startActivity(intent)
     }
 
     override fun onLoadContributorComplete(data: String) {
