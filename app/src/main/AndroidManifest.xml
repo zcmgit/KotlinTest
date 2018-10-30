@@ -24,7 +24,8 @@
         </activity>
 
         <activity android:name=".drawer.DrawerMainActivity"></activity>
-        <activity android:name=".dao.test.DBtest"></activity>
+        <activity android:name=".greendao.test.DBtest"></activity>
+        <activity android:name=".dbflow.activity.DBFlowActivity"></activity>
         <!--<activity android:name=".list.ListActivity"></activity>-->
     </application>
 

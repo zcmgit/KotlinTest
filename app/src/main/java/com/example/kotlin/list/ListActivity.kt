@@ -8,13 +8,13 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import com.example.kotlin.R
 import com.example.kotlin.adapter.MyAdapter
-import com.example.kotlin.dao.test.DBtest
+import com.example.kotlin.dbflow.activity.DBFlowActivity
+import com.example.kotlin.greendao.test.DBtest
 import com.example.kotlin.dialog.CommonDialog
 import com.example.kotlin.dialog.CommonDialogFragment
 import com.example.kotlin.drawer.DrawerMainActivity
 import com.example.kotlin.tool.Preference
 import kotlinx.android.synthetic.main.list.*
-import org.greenrobot.greendao.test.DbTest
 import org.jetbrains.anko.toast
 
 /**
@@ -40,6 +40,7 @@ class ListActivity : AppCompatActivity() {
                     1 -> showCommonDialogFragment()
                     2 -> startDrawer()
                     3 -> DbTest()
+                    4 -> dbFlowTest()
                     else -> toast("click：：" + p0 + "::" + listDatas.get(p0))
                 }
             }
@@ -50,13 +51,20 @@ class ListActivity : AppCompatActivity() {
         listDatas.add("提示对话框")
         listDatas.add("自定义DialogFragment")
         listDatas.add("抽屉侧滑菜单")
-        listDatas.add("数据库Test")
-        for (i in 4..50) {
+        listDatas.add("GreenDao数据库Test")
+        listDatas.add("DBFlow数据库Test")
+        for (i in 5..50) {
             var test = "测试Test"
             listDatas.add(i, test)
         }
         Log.d("tag", "list.size------" + listDatas.size)
         return listDatas
+    }
+
+    private fun dbFlowTest(){
+        var intent = Intent()
+        intent.setClass(this,DBFlowActivity::class.java)
+        startActivity(intent)
     }
 
     private fun DbTest(){

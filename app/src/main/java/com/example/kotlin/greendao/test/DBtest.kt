@@ -1,12 +1,11 @@
-package com.example.kotlin.dao.test
+package com.example.kotlin.greendao.test
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.kotlin.R
-import com.example.kotlin.dao.bean.UserInfo
-import com.example.kotlin.dao.utils.UserInfoUtil
+import com.example.kotlin.greendao.bean.UserInfo
+import com.example.kotlin.greendao.utils.UserInfoUtil
 import kotlinx.android.synthetic.main.db_test.*
-import kotlinx.android.synthetic.main.list_item.*
 
 /**
  * @author zcm

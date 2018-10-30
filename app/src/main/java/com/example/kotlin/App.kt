@@ -2,8 +2,10 @@ package com.example.kotlin
 
 import android.app.Application
 import android.content.Context
-import com.example.kotlin.dao.gen.DaoMaster
-import com.example.kotlin.dao.gen.DaoSession
+import com.example.kotlin.greendao.gen.DaoMaster
+import com.example.kotlin.greendao.gen.DaoSession
+import com.raizlabs.android.dbflow.config.FlowConfig
+import com.raizlabs.android.dbflow.config.FlowManager
 
 /**
  * @author zcm
@@ -24,6 +26,7 @@ class App : Application() {
         instance = this
         initDao()
         context = applicationContext
+        FlowManager.init(FlowConfig.Builder(this).build())
     }
 
     fun initDao(){
@@ -36,7 +39,8 @@ class App : Application() {
         return daoSession
     }
 
-    open fun getContext():Context{
-        return context
+    override fun onTerminate() {
+        super.onTerminate()
+        FlowManager.destroy()
     }
 }

@@ -1,7 +1,7 @@
-package com.example.kotlin.dao.utils
+package com.example.kotlin.greendao.utils
 
 import com.example.kotlin.App
-import com.example.kotlin.dao.bean.UserInfo
+import com.example.kotlin.greendao.bean.UserInfo
 
 /**
  * @author zcm

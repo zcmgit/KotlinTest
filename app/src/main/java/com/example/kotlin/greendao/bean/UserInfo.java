@@ -1,4 +1,4 @@
-package com.example.kotlin.dao.bean;
+package com.example.kotlin.greendao.bean;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
