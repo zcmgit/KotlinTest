@@ -53,20 +53,17 @@ dependencies {
     implementation 'io.reactivex:rxandroid:1.2.1'
     implementation 'io.reactivex:rxjava:1.1.6'
 
-    // DBFlow
-    // annotationProcessor now supported in Android Gradle plugin 2.2
-    // See https://bitbucket.org/hvisser/android-apt/wiki/Migration
+    // DBFlow数据库
     kapt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
-
-//    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
     implementation "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
     implementation "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
 
-    // sql-cipher database encryption (optional)
-    // implementation "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${dbflow_version}"
-
     //数据库
     implementation 'org.greenrobot:greendao:3.2.2'
+
+    //底部导航栏
+    implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.4'
+
 }
 repositories {
     mavenCentral()

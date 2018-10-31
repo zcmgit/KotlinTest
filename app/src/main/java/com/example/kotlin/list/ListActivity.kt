@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import com.example.kotlin.R
 import com.example.kotlin.adapter.MyAdapter
+import com.example.kotlin.bottomnav.BottomNaigationBarActivity
 import com.example.kotlin.dbflow.activity.DBFlowActivity
 import com.example.kotlin.greendao.test.DBtest
 import com.example.kotlin.dialog.CommonDialog
@@ -41,6 +42,7 @@ class ListActivity : AppCompatActivity() {
                     2 -> startDrawer()
                     3 -> DbTest()
                     4 -> dbFlowTest()
+                    5 -> showBottomNar()
                     else -> toast("click：：" + p0 + "::" + listDatas.get(p0))
                 }
             }
@@ -53,12 +55,21 @@ class ListActivity : AppCompatActivity() {
         listDatas.add("抽屉侧滑菜单")
         listDatas.add("GreenDao数据库Test")
         listDatas.add("DBFlow数据库Test")
-        for (i in 5..50) {
+        listDatas.add("BottomNaigationBar")
+        for (i in 6..50) {
             var test = "测试Test"
             listDatas.add(i, test)
         }
         Log.d("tag", "list.size------" + listDatas.size)
         return listDatas
+    }
+
+    private fun showBottomNar(){
+        val intent = Intent()
+        //获取intent对象
+        intent.setClass(this, BottomNaigationBarActivity::class.java)
+        // 获取class是使用::反射(那么问题来了,反射是个什么鬼?👻👻👻👻小白的悲哀啊,赶紧研究研究去)
+        startActivity(intent)
     }
 
     private fun dbFlowTest(){
