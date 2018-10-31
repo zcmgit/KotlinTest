@@ -7,3 +7,5 @@ GreenDao数据库
 DBFlow数据库  
 SharedPreferences使用  
 RecyclerView  
+BottomNaigationBar 底部导航栏  
+
