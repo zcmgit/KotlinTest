@@ -28,6 +28,7 @@
         <activity android:name=".dbflow.activity.DBFlowActivity"></activity>
         <activity android:name=".bottomnav.BottomNaigationBarActivity"></activity>
         <activity android:name=".tablayout.TablayoutActivity"></activity>
+        <activity android:name=".banner.BannerActivity"></activity>
         <!--<activity android:name=".list.ListActivity"></activity>-->
     </application>
 

@@ -64,6 +64,8 @@ dependencies {
     //底部导航栏
     implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.4'
 
+    //轮播
+    implementation 'com.bigkoo:convenientbanner:2.0.5'
 }
 repositories {
     mavenCentral()

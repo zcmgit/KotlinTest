@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import com.example.kotlin.R
 import com.example.kotlin.adapter.MyAdapter
+import com.example.kotlin.banner.BannerActivity
 import com.example.kotlin.bottomnav.BottomNaigationBarActivity
 import com.example.kotlin.dbflow.activity.DBFlowActivity
 import com.example.kotlin.greendao.test.DBtest
@@ -46,6 +47,7 @@ class ListActivity : AppCompatActivity() {
                     4 -> dbFlowTest()
                     5 -> showBottomNar()
                     6 -> showTabLayout()
+                    7 -> showBanner()
                     else -> toast("click：：" + p0 + "::" + listDatas.get(p0))
                 }
             }
@@ -60,7 +62,8 @@ class ListActivity : AppCompatActivity() {
         listDatas.add("DBFlow数据库Test")
         listDatas.add("BottomNaigationBar")
         listDatas.add("TabLayout")
-        for (i in 7..50) {
+        listDatas.add("图片轮播")
+        for (i in 8..50) {
             var test = "测试Test"
             listDatas.add(i, test)
         }
@@ -68,6 +71,11 @@ class ListActivity : AppCompatActivity() {
         return listDatas
     }
 
+    private fun showBanner(){
+        var intent = Intent()
+        intent.setClass(this,BannerActivity::class.java)
+        startActivity(intent)
+    }
     private fun showTabLayout(){
         var intent = Intent()
         intent.setClass(this,TablayoutActivity::class.java)
@@ -100,13 +108,6 @@ class ListActivity : AppCompatActivity() {
         //获取intent对象
         intent.setClass(this, DrawerMainActivity::class.java)
         // 获取class是使用::反射(那么问题来了,反射是个什么鬼?👻👻👻👻小白的悲哀啊,赶紧研究研究去)
-        startActivity(intent)
-    }
-    private fun start1(clazz: Activity){
-        val intent = Intent()
-        //获取intent对象
-        intent.setClass(this, clazz::class.java)
-        // 获取class是使用::反射
         startActivity(intent)
     }
     private fun showCommonDialogFragment(){
