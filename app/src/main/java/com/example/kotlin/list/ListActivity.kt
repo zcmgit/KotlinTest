@@ -1,5 +1,6 @@
 package com.example.kotlin.list
 
+import android.app.Activity
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -14,6 +15,7 @@ import com.example.kotlin.greendao.test.DBtest
 import com.example.kotlin.dialog.CommonDialog
 import com.example.kotlin.dialog.CommonDialogFragment
 import com.example.kotlin.drawer.DrawerMainActivity
+import com.example.kotlin.tablayout.TablayoutActivity
 import com.example.kotlin.tool.Preference
 import kotlinx.android.synthetic.main.list.*
 import org.jetbrains.anko.toast
@@ -43,6 +45,7 @@ class ListActivity : AppCompatActivity() {
                     3 -> DbTest()
                     4 -> dbFlowTest()
                     5 -> showBottomNar()
+                    6 -> showTabLayout()
                     else -> toast("click：：" + p0 + "::" + listDatas.get(p0))
                 }
             }
@@ -56,12 +59,19 @@ class ListActivity : AppCompatActivity() {
         listDatas.add("GreenDao数据库Test")
         listDatas.add("DBFlow数据库Test")
         listDatas.add("BottomNaigationBar")
-        for (i in 6..50) {
+        listDatas.add("TabLayout")
+        for (i in 7..50) {
             var test = "测试Test"
             listDatas.add(i, test)
         }
         Log.d("tag", "list.size------" + listDatas.size)
         return listDatas
+    }
+
+    private fun showTabLayout(){
+        var intent = Intent()
+        intent.setClass(this,TablayoutActivity::class.java)
+        startActivity(intent)
     }
 
     private fun showBottomNar(){
@@ -90,6 +100,13 @@ class ListActivity : AppCompatActivity() {
         //获取intent对象
         intent.setClass(this, DrawerMainActivity::class.java)
         // 获取class是使用::反射(那么问题来了,反射是个什么鬼?👻👻👻👻小白的悲哀啊,赶紧研究研究去)
+        startActivity(intent)
+    }
+    private fun start1(clazz: Activity){
+        val intent = Intent()
+        //获取intent对象
+        intent.setClass(this, clazz::class.java)
+        // 获取class是使用::反射
         startActivity(intent)
     }
     private fun showCommonDialogFragment(){
