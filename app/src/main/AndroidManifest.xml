@@ -29,6 +29,7 @@
         <activity android:name=".bottomnav.BottomNaigationBarActivity"></activity>
         <activity android:name=".tablayout.TablayoutActivity"></activity>
         <activity android:name=".banner.BannerActivity"></activity>
+        <activity android:name=".multilist.MultListActivity"></activity>
         <!--<activity android:name=".list.ListActivity"></activity>-->
     </application>
 

@@ -1,6 +1,5 @@
 package com.example.kotlin.list
 
-import android.app.Activity
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import com.example.kotlin.R
-import com.example.kotlin.adapter.MyAdapter
+import com.example.kotlin.list.adapter.MyAdapter
 import com.example.kotlin.banner.BannerActivity
 import com.example.kotlin.bottomnav.BottomNaigationBarActivity
 import com.example.kotlin.dbflow.activity.DBFlowActivity
@@ -16,6 +15,7 @@ import com.example.kotlin.greendao.test.DBtest
 import com.example.kotlin.dialog.CommonDialog
 import com.example.kotlin.dialog.CommonDialogFragment
 import com.example.kotlin.drawer.DrawerMainActivity
+import com.example.kotlin.multilist.MultListActivity
 import com.example.kotlin.tablayout.TablayoutActivity
 import com.example.kotlin.tool.Preference
 import kotlinx.android.synthetic.main.list.*
@@ -48,6 +48,7 @@ class ListActivity : AppCompatActivity() {
                     5 -> showBottomNar()
                     6 -> showTabLayout()
                     7 -> showBanner()
+                    8 -> showMultList()
                     else -> toast("click：：" + p0 + "::" + listDatas.get(p0))
                 }
             }
@@ -63,12 +64,19 @@ class ListActivity : AppCompatActivity() {
         listDatas.add("BottomNaigationBar")
         listDatas.add("TabLayout")
         listDatas.add("图片轮播")
-        for (i in 8..50) {
+        listDatas.add("多布局List")
+        for (i in 9..50) {
             var test = "测试Test"
             listDatas.add(i, test)
         }
         Log.d("tag", "list.size------" + listDatas.size)
         return listDatas
+    }
+
+    private fun showMultList(){
+        var intent = Intent()
+        intent.setClass(this,MultListActivity::class.java)
+        startActivity(intent)
     }
 
     private fun showBanner(){

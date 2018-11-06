@@ -4,12 +4,9 @@ import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.util.DisplayMetrics
 import android.view.*
-import android.widget.Button
 import android.widget.TextView
 import com.example.kotlin.R
-import com.example.kotlin.adapter.MyAdapter
 import com.example.kotlin.tool.ScreenUtil
-import kotlinx.android.synthetic.main.common_dialog.*
 
 /**
  * @author zcm

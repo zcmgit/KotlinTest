@@ -1,4 +1,4 @@
-package com.example.kotlin.adapter
+package com.example.kotlin.list.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
