@@ -66,6 +66,8 @@ dependencies {
 
     //轮播
     implementation 'com.bigkoo:convenientbanner:2.0.5'
+
+    implementation 'com.github.wxpay:WXPay-SDK-Java:0.0.4'
 }
 repositories {
     mavenCentral()
