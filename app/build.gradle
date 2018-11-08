@@ -7,6 +7,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.example.kotlin"
         minSdkVersion 15
         targetSdkVersion 21
@@ -27,7 +28,17 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            lintOptions {
+               checkReleaseBuilds false
+                abortOnError false
+            }
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+             lintOptions {
+                checkReleaseBuilds false
+                abortOnError false
+            }
         }
     }
 }
@@ -35,7 +46,7 @@ android {
 def dbflow_version = "4.0.3"
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
@@ -43,8 +54,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "org.jetbrains.anko:anko-commons:0.10.0"
-
+    implementation 'org.jetbrains.anko:anko-commons:0.10.0'
     implementation 'com.zhy:okhttputils:2.6.2'
     implementation 'com.alibaba:fastjson:1.1.54.android'
     implementation 'com.squareup.retrofit2:retrofit:2.1.0'
@@ -52,22 +62,24 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     implementation 'io.reactivex:rxandroid:1.2.1'
     implementation 'io.reactivex:rxjava:1.1.6'
-
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
     // DBFlow数据库
     kapt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
     implementation "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
     implementation "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
-
     //数据库
     implementation 'org.greenrobot:greendao:3.2.2'
-
     //底部导航栏
     implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.4'
-
     //轮播
     implementation 'com.bigkoo:convenientbanner:2.0.5'
-
     implementation 'com.github.wxpay:WXPay-SDK-Java:0.0.4'
+    implementation files('libs/alipay-sdk-java-3.3.4.ALL.jar')
+
+//    Cannot fit requested classes in a single dex file. Try supplying a main-dex list.
+//    # methods: 119513 > 65536  异常处理
+    implementation 'com.android.support:multidex:1.0.1'
 }
 repositories {
     mavenCentral()

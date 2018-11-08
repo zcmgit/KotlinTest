@@ -32,6 +32,7 @@
         <activity android:name=".multilist.MultListActivity"></activity>
         <activity android:name=".list.ListActivity"></activity>
         <activity android:name=".pay.wxpay.WXPayActivity"></activity>
+        <activity android:name=".pay.alipay.AlipayActivity"></activity>
     </application>
 
 </manifest>

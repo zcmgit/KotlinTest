@@ -16,6 +16,7 @@ import com.example.kotlin.dialog.CommonDialog
 import com.example.kotlin.dialog.CommonDialogFragment
 import com.example.kotlin.drawer.DrawerMainActivity
 import com.example.kotlin.multilist.MultListActivity
+import com.example.kotlin.pay.alipay.AlipayActivity
 import com.example.kotlin.pay.wxpay.WXPayActivity
 import com.example.kotlin.tablayout.TablayoutActivity
 import com.example.kotlin.tool.Preference
@@ -50,7 +51,8 @@ class ListActivity : AppCompatActivity() {
                     6 -> showTabLayout()
                     7 -> showBanner()
                     8 -> showMultList()
-                    9 -> showPayActivity()
+                    9 -> showWXPayActivity()
+                    10 -> showAlipayActivity()
                     else -> toast("click：：" + p0 + "::" + listDatas.get(p0))
                 }
             }
@@ -68,7 +70,8 @@ class ListActivity : AppCompatActivity() {
         listDatas.add("图片轮播")
         listDatas.add("多布局List")
         listDatas.add("微信支付")
-        for (i in 10..50) {
+        listDatas.add("支付宝条码支付")
+        for (i in 11..50) {
             var test = "测试Test"
             listDatas.add(i, test)
         }
@@ -76,8 +79,13 @@ class ListActivity : AppCompatActivity() {
         return listDatas
     }
 
+    private fun showAlipayActivity(){
+        var intent = Intent()
+        intent.setClass(this,AlipayActivity::class.java)
+        startActivity(intent)
+    }
 
-    private fun showPayActivity(){
+    private fun showWXPayActivity(){
         var intent = Intent()
         intent.setClass(this,WXPayActivity::class.java)
         startActivity(intent)

@@ -1,18 +1,12 @@
 package com.example.kotlin.pay.wxpay
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.os.Message
-import android.os.Message.obtain
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.example.kotlin.R
-import com.example.kotlin.R.id.wx_pay_edit
 import com.example.kotlin.pay.wxpay.util.WXPayImpl
 import com.github.wxpay.sdk.WXPayConstants
-import kotlinx.android.synthetic.main.wx_pay_activity.*
-import java.lang.ref.WeakReference
+import kotlinx.android.synthetic.main.pay_activity.*
 import java.util.HashMap
 import kotlin.concurrent.thread
 
@@ -24,9 +18,9 @@ import kotlin.concurrent.thread
 class WXPayActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.wx_pay_activity)
+        setContentView(R.layout.pay_activity)
 
-        wx_pay_btn.setOnClickListener {
+        pay_btn.setOnClickListener {
             var code = wx_pay_edit.text.toString()
             thread {
                 val map = HashMap<String, String>()
