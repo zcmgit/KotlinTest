@@ -10,6 +10,7 @@ RecyclerView
 BottomNaigationBar 底部导航栏  
 Tablayout  
 图片轮播  
-多布局Recycleview  
+多布局Recycleview    
+微信刷卡支付
 
 
