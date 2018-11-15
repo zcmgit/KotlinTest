@@ -15,6 +15,7 @@ import com.example.kotlin.greendao.test.DBtest
 import com.example.kotlin.dialog.CommonDialog
 import com.example.kotlin.dialog.CommonDialogFragment
 import com.example.kotlin.drawer.DrawerMainActivity
+import com.example.kotlin.edittext.EdittextTestActivity
 import com.example.kotlin.multilist.MultListActivity
 import com.example.kotlin.pay.alipay.AlipayActivity
 import com.example.kotlin.pay.wxpay.WXPayActivity
@@ -53,6 +54,7 @@ class ListActivity : AppCompatActivity() {
                     8 -> showMultList()
                     9 -> showWXPayActivity()
                     10 -> showAlipayActivity()
+                    11 -> showEdittextActivity()
                     else -> toast("click：：" + p0 + "::" + listDatas.get(p0))
                 }
             }
@@ -71,12 +73,19 @@ class ListActivity : AppCompatActivity() {
         listDatas.add("多布局List")
         listDatas.add("微信支付")
         listDatas.add("支付宝条码支付")
-        for (i in 11..50) {
+        listDatas.add("edittext相关")
+        for (i in 12..50) {
             var test = "测试Test"
             listDatas.add(i, test)
         }
         Log.d("tag", "list.size------" + listDatas.size)
         return listDatas
+    }
+
+    private fun showEdittextActivity(){
+        var intent = Intent()
+        intent.setClass(this,EdittextTestActivity::class.java)
+        startActivity(intent)
     }
 
     private fun showAlipayActivity(){
